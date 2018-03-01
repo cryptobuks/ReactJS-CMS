@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Section extends React.Component {
+class Sections extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,7 +29,9 @@ class Section extends React.Component {
                         <ul>
                             <li>
                                 {
-                                    console.log(this.state.sections)
+                                    this.state.sections.map(function(section, index) {
+                                        return <a href={"#/section/" + section.slug} key={index}><i className={section.icon}></i>{section.name}</a>
+                                    })
                                 }
                             </li>
                         </ul>
@@ -43,7 +45,6 @@ class Section extends React.Component {
                 <div className="section menu">
                     <div className="head">
                         <img src="/images/profile.jpg" alt=""/>
-                        { console.log ('test') }
                     </div>
                 </div>
             );
@@ -51,4 +52,4 @@ class Section extends React.Component {
     }
 }
 
-export default Section;
+export default Sections;
