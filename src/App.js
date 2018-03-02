@@ -14,12 +14,12 @@ class App extends Component {
                         <Sections />
                     </div>
 
-                    <div id="sectionsContent" class="section editor">
+                    <div id="sectionsContent" className="section editor">
                         <Route exact path="/section/:section/" component={Section}/>
                     </div>
 
-                    <div class="body">
-                        <div class="section display">
+                    <div className="body">
+                        <div className="section display">
                             <Route exact path="/" component={Home}/>
                         </div>
                     </div>
