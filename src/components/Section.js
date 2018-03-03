@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Section extends React.Component {
-
     render() {
         return (
             <div>
@@ -10,7 +9,7 @@ class Section extends React.Component {
                         <input type="text" name="search" placeholder="Search.." />
                     </div>
                     <div className="tabs">
-                        <div className={this.props.match.url === "/section/content" ? "tab active" : "tab"}>
+                        <div className={this.props.match.params.section === "content" ? "tab active" : "tab"}>
                             <div className="root">Content</div>
                             <ul className="file-tree">
                                 <li><a href="#section/content/page/7/"><i className="fa fa-folder"></i>haydenbruin.com</a>
@@ -26,6 +25,13 @@ class Section extends React.Component {
                                         <li><a href="#section/content/page/6/"><i className="fa fa-phone"></i>Contact Us</a></li>
                                     </ul>
                                 </li>
+                            </ul>
+                        </div>
+                        <div className={this.props.match.params.section === "media" ? "tab active" : "tab"}>
+                            <div className="root">Content</div>
+                            <ul className="file-tree">
+                                <li><a href="#section/media/page/7/"><i className="fa fa-folder"></i>mediafile.jpg</a></li>
+                                <li><a href="#section/media/page/7/"><i className="fa fa-folder"></i>catpic.png</a></li>
                             </ul>
                         </div>
                     </div>

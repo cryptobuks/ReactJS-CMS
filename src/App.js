@@ -10,19 +10,8 @@ class App extends Component {
         return (
             <HashRouter>
                 <div className="App">
-                    <div id="sections">
-                        <Sections />
-                    </div>
-
-                    <div id="sectionsContent" className="section editor">
-                        <Route exact path="/section/:section/" component={Section}/>
-                    </div>
-
-                    <div className="body">
-                        <div className="section display">
-                            <Route exact path="/" component={Home}/>
-                        </div>
-                    </div>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/section/:section/" component={Sections} />
                 </div>
             </HashRouter>
         );

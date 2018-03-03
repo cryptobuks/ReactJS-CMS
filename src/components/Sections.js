@@ -1,4 +1,8 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
+import Home from './Home.js';
+import Section from './Section.js';
+import ContentEdit from './ContentEdit.js';
 
 class Sections extends React.Component {
     constructor(props) {
@@ -24,7 +28,7 @@ class Sections extends React.Component {
                 });
             }
         )
-
+        console.log(props)
     }
 
     changeTab = tab => {
@@ -32,9 +36,8 @@ class Sections extends React.Component {
     }
 
     render() {
-        if(this.state.sectionsLoaded === true)
-        {
-            return (
+        return (
+            <div>
                 <div className="section menu">
                     <div className="head">
                         <img src="/images/profile.jpg" alt=""/>
@@ -44,25 +47,33 @@ class Sections extends React.Component {
                             <li>
                                 {
                                     this.state.sections.map(function(section, index) {
-                                        return <a href={"#/section/" + section.slug} key={index}  onClick={e => this.changeTab(section.slug)} className={this.state.activeTab === section.slug ? "active" : null}><i className={section.icon}></i>{section.name}</a>
+                                        return <a href={"#/section/" + section.slug + "/"} key={index}  onClick={e => this.changeTab(section.slug)} className={this.props.match.params.section === section.slug ? "active" : null}><i className={section.icon}></i>{section.name}</a>
                                     }, this)
                                 }
                             </li>
                         </ul>
                     </nav>
                 </div>
-            );
-        }
-        else
-        {
-            return (
-                <div className="section menu">
-                    <div className="head">
-                        <img src="/images/profile.jpg" alt=""/>
+
+                <div id="sectionsContent" className="section editor">
+                    <div className="editor-tree">
+                        <div className="search hide">
+                            <input type="text" name="search" placeholder="Search.." />
+                        </div>
+                        <div className="tabs">
+                            <Route path="/section/:section/" component={Section} />
+                        </div>
                     </div>
                 </div>
-            );
-        }
+
+                <div className="body">
+                    <div className="section display">
+                        <Route exact path="/section/content/page/:id/" component={ContentEdit} />
+                    </div>
+                </div>
+
+            </div>
+        );
     }
 }
 
