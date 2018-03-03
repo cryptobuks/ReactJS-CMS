@@ -19,7 +19,8 @@ class Sections extends React.Component {
             .then(data => {
                 this.setState({
                     sections: data,
-                    sectionsLoaded: true
+                    sectionsLoaded: true,
+                    activeTab: data[0]['slug']
                 });
             }
         )
