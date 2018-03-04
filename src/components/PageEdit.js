@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ContentEdit extends React.Component {
+class PageEdit extends React.Component {
     render() {
         return (
             <div>
@@ -75,4 +75,4 @@ class ContentEdit extends React.Component {
     }
 }
 
-export default ContentEdit;
+export default PageEdit;

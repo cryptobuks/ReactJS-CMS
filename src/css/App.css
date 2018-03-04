@@ -115,7 +115,7 @@ select {
     color: #515054;
     box-shadow: none;
     border: 1px solid #eee;
-    padding: 15px;
+    padding: 0px 15px;
     height: 40px;
     width: 100%;
     outline: none;
@@ -132,6 +132,7 @@ textarea {
     height: 150px;
     max-width: 100%;
     margin-bottom: 10px;
+    padding: 15px;
 }
 
 /*** LABEL ***/
@@ -498,7 +499,6 @@ table > tbody > tr:hover > th { background-color: rgba(0, 0, 0, 0.12); }
     background: #F8F8F8;
     border-bottom: 1px solid #D9D9D9;
     position: relative;
-	height: 90px;
 }
 
 /*** TABS ***/

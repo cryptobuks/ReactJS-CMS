@@ -1,11 +1,33 @@
 import React from 'react';
 
 class Section extends React.Component {
+    constructor(props)
+    {
+        super(props)
+        this.state = {
+            apiurl: 'http://backoffice.bruindev.com/ang',
+            pages: [],
+            pagesLoaded: false
+        }
+
+        // FETCH PAGES
+        fetch(this.state.apiurl + "/api/loadPages.php")
+            .then((resp) => resp.json())
+            .then(data => {
+                this.setState({
+                    pages: data,
+                    pagesLoaded: true
+                });
+                console.log(data);
+            }
+        )
+
+    }
     render() {
         return (
             <div>
                 <div className="editor-tree">
-                    <div className="search hide">
+                    <div className="search">
                         <input type="text" name="search" placeholder="Search.." />
                     </div>
                     <div className="tabs">
@@ -32,6 +54,36 @@ class Section extends React.Component {
                             <ul className="file-tree">
                                 <li><a href="#section/media/page/7/"><i className="fa fa-folder"></i>mediafile.jpg</a></li>
                                 <li><a href="#section/media/page/7/"><i className="fa fa-folder"></i>catpic.png</a></li>
+                            </ul>
+                        </div>
+                        <div className={this.props.match.params.section === "settings" ? "tab active" : "tab"}>
+                            <div className="root">Settings</div>
+                            <ul className="file-tree">
+                                <li><a><i className="fa fa-folder"></i>Page Types</a>
+                                    <ul>
+                                        {
+                                            this.state.pages.map(function(page, index) {
+                                                return <li key={index}><a href={"#/section/settings/page/" + page.id + "/"}><i className={"fa " + page.icon}></i>{page.name}</a></li>
+                                            }, this)
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className={this.props.match.params.section === "users" ? "tab active" : "tab"}>
+                            <div className="root">Users</div>
+                            <ul className="file-tree">
+                                <li><a href="#section/email/page/1/"><i className="fa fa-folder"></i>Email Settings</a></li>
+                                <li><a href="#section/email/page/2/"><i className="fa fa-folder"></i>Email Templates</a></li>
+                                <li><a href="#section/email/page/3/"><i className="fa fa-folder"></i>Mail Log</a></li>
+                            </ul>
+                        </div>
+                        <div className={this.props.match.params.section === "email" ? "tab active" : "tab"}>
+                            <div className="root">Emails</div>
+                            <ul className="file-tree">
+                                <li><a href="#section/email/page/1/"><i className="fa fa-folder"></i>Email Settings</a></li>
+                                <li><a href="#section/email/page/2/"><i className="fa fa-folder"></i>Email Templates</a></li>
+                                <li><a href="#section/email/page/3/"><i className="fa fa-folder"></i>Mail Log</a></li>
                             </ul>
                         </div>
                     </div>

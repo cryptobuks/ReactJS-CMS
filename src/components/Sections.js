@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Home from './Home.js';
 import Section from './Section.js';
 import ContentEdit from './ContentEdit.js';
+import PageEdit from './PageEdit.js';
 
 class Sections extends React.Component {
     constructor(props) {
@@ -28,7 +29,6 @@ class Sections extends React.Component {
                 });
             }
         )
-        console.log(props)
     }
 
     changeTab = tab => {
@@ -68,7 +68,9 @@ class Sections extends React.Component {
 
                 <div className="body">
                     <div className="section display">
+                        <Route exact path="/section/content/" component={Home} />
                         <Route exact path="/section/content/page/:id/" component={ContentEdit} />
+                        <Route exact path="/section/settings/page/:id/" component={PageEdit} />
                     </div>
                 </div>
 
