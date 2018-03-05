@@ -16,51 +16,30 @@ class PageEdit extends React.Component {
                     </nav>
                 </div>
                 <div className="display-content">
-                    <div className="content content-1">
-                        <div className="row field">
-                            <div className="col-md-3 col-sm-4">
-                                <label className="title">Page Title</label>
-                                <p>Set a page tite for your page</p>
-                            </div>
-                            <div className="col-md-7 col-sm-8">
-                                <input type="text" />
-                            </div>
-                        </div>
-                        <div className="row field">
-                            <div className="col-md-3 col-sm-4">
-                                <label className="title">Page Description</label>
-                            </div>
-                            <div className="col-md-7 col-sm-8">
-                                <input type="text" />
-                            </div>
-                        </div>
-                        <div className="row field">
-                            <div className="col-md-3 col-sm-4">
-                                <label className="title">Page Content</label>
-                            </div>
-                            <div className="col-md-7 col-sm-8">
-                                <textarea></textarea>
+                    <div class="design">
+                        <div className="group">
+                            <div className="group-title"><input type="text" value="section->name" /></div>
+                            <div className="group-fields">
+                                <div className="field">
+                                    <div className="row">
+                                        <div className="col-md-3 col-sm-5">
+                                            <input type="text" className="field-input title" placeholder="Label..." value="field->name" />
+                                            <input type="text" className="field-input alias" placeholder="Alias..." value="field->alias" />
+                                            <textarea className="field-input description" placeholder="Enter a description..."></textarea>
+                                        </div>
+                                        <div className="col-md-8 col-sm-6">
+                                            <div className="transparent"></div>
+                                        </div>
+                                        <div className="col-md-1 col-sm-1">
+                                            <div className="options">
+                                                <a><i className="fa fa-cog"></i></a>
+                                                <a><i className="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="content content-2 hide">
-                        <div className="row field">
-                            <div className="col-md-3 col-sm-4">
-                                <label className="title">Category</label>
-                            </div>
-                            <div className="col-md-7 col-sm-8">
-                                <select>
-                                    <option>Lorem Ipsum Dolar</option>
-                                    <option>Lorem Ipsum Dolar</option>
-                                    <option>Lorem Ipsum Dolar</option>
-                                    <option>Lorem Ipsum Dolar</option>
-                                    <option>Lorem Ipsum Dolar</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="content content-3 hide">
-                        <p>More fields here...</p>
                     </div>
                 </div>
                 <div className="display-footer">
