@@ -18,7 +18,6 @@ class Section extends React.Component {
                     pages: data,
                     pagesLoaded: true
                 });
-                console.log(data);
             }
         )
 
